@@ -1,48 +1,53 @@
-GPSLocator
-Overview
+# GPSLocator
 
-GPSLocator is a real-time GPS tracking application built with Flutter. This app uses an ESP32 with a GPS sensor to send location data to ThingSpeak, which the app retrieves every 10 seconds to display the device's live location on a Google Map.
-Features
+## Overview
+**GPSLocator** is a Flutter application designed to fetch and display real-time GPS data sent from an ESP32 with a GPS sensor. The ESP32 transmits location data to the ThingSpeak API, which the app retrieves every 10 seconds, allowing users to track their current position live on a Google Map.
 
-    Real-Time Tracking: Updates location every 10 seconds, showing the ESP32’s current position.
-    Google Maps Integration: Provides seamless map display and user-friendly navigation.
-    ThingSpeak Connectivity: Utilizes ThingSpeak API for reliable data retrieval.
-    User-Friendly UI: Intuitive interface for viewing and interacting with live location data.
+## Features
+- **Real-Time GPS Tracking**: Fetches and displays the ESP32 device's current GPS location every 10 seconds.
+- **Google Maps Integration**: Utilizes the Google Maps API for a seamless mapping experience.
+- **Live Updates**: Marks the current position on the map for easy navigation and tracking.
+- **User-Friendly Interface**: Simple and intuitive UI for effortless interaction.
 
-Technology Stack
+## Technology Stack
+- **Flutter**: A UI toolkit for building natively compiled applications from a single codebase.
+- **Dart**: The programming language used for Flutter development.
+- **ESP32 with GPS Module**: Hardware for capturing and transmitting GPS data.
+- **ThingSpeak API**: For storing and retrieving real-time GPS data.
+- **Google Maps API**: For displaying the map and user location.
 
-    Flutter: UI toolkit for building natively compiled applications across mobile, web, and desktop.
-    Dart: The programming language used for Flutter development.
-    ESP32 with GPS Module: Hardware for GPS data capture and transmission.
-    ThingSpeak API: Cloud service for storing and accessing GPS data.
-    Google Maps API: Map display and navigation.
+## Screenshot
+![image](https://github.com/user-attachments/assets/d8fd871d-ced0-44df-8e31-0c4109fae0ad)
 
-System Architecture
+## Getting Started
 
-    ESP32 with GPS Sensor: Captures and sends GPS data to ThingSpeak via Wi-Fi.
-    ThingSpeak: Stores and provides access to the ESP32’s real-time location data.
-    Flutter App: Fetches GPS data from ThingSpeak and displays it on a Google Map.
+### Prerequisites
+- **Hardware**:
+  - ESP32 microcontroller with GPS module.
+- **Software**:
+  - Flutter SDK (version 2.0 or above)
+  - Dart SDK
+  - A Google Cloud project with Google Maps API enabled
+  - A ThingSpeak account with channel API keys
 
-Screenshots
+### Installation
 
-image
-Getting Started
-Prerequisites
+1. **ESP32 Setup**:
+   - Connect the GPS module to your ESP32.
+   - Program the ESP32 to read GPS data and send it to ThingSpeak every 10 seconds.
 
-    Hardware:
-        ESP32 microcontroller with GPS module.
-    Software:
-        Flutter SDK (version 2.0 or above)
-        Dart SDK
-        Google Maps API key (from a Google Cloud project)
-        ThingSpeak account and channel API key for data storage
+2. **ThingSpeak Setup**:
+   - Create a new ThingSpeak channel and note the Write and Read API keys.
 
-Installation
+3. **Flutter App Setup**:
+   - Add your **Google Maps API key** in `AndroidManifest.xml`:
+     ```xml
+     <meta-data
+         android:name="com.google.android.geo.API_KEY"
+         android:value="YOUR_GOOGLE_MAPS_API_KEY"/>
+     ```
+   - Configure the app to use the **ThingSpeak Read API key** to fetch GPS data.
 
-    ESP32 Setup:
-        Connect the GPS module to the ESP32.
-        Program the ESP32 to read GPS coordinates and send data to ThingSpeak at intervals (e.g., every 10 seconds).
-
-    ThingSpeak Configuration:
-        Create a ThingSpeak channel and retrieve the Write and Read API keys.
-        Confirm that the ESP32 is successfully sending data to ThingSpeak.
+4. **Run the App**:
+   ```bash
+   flutter run
